@@ -3,11 +3,13 @@ package net.chronakis.adrian.ttgen;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import net.chronakis.adrian.ttgen.TTQuestion.Sign;
 
 public class TTSheet {
 	private final String title;
+	private final List<Integer> numbers;
 	private final List<TTSentence> sentences;
 	private final List<TTQuestion> questions;
 	private final double divisionProb;
@@ -15,26 +17,45 @@ public class TTSheet {
 	private final int range;
 	private final int count;
 	
-	public TTSheet(String title, Integer [] numbers, int count, double divisionProb, double equationProb) {
-		this(title, numbers, 12, count, divisionProb, equationProb);
+	public TTSheet(Integer [] numbers, int count, double divisionProb, double equationProb) {
+		this(numbers, 12, count, divisionProb, equationProb);
 	}
 	
-	public TTSheet(String title, List<Integer> numbers, int count, double divisionProb, double equationProb) {
-		this(title, numbers, 12, count, divisionProb, equationProb);
+	public TTSheet(List<Integer> numbers, int count, double divisionProb, double equationProb) {
+		this(numbers, 12, count, divisionProb, equationProb);
 	}
 
-	public TTSheet(String title, Integer [] numbers, int range, int count, double divisionProb, double equationProb) {
-		this(title, Arrays.asList(numbers), count, divisionProb, equationProb);
+	public TTSheet(Integer [] numbers, int range, int count, double divisionProb, double equationProb) {
+		this(Arrays.asList(numbers), count, divisionProb, equationProb);
 	}
 	
-	public TTSheet(String title, List<Integer> numbers, int range, int count, double divisionProb, double equationProb) {
-		this.title = title;
+	public TTSheet(List<Integer> numbers, int range, int count, double divisionProb, double equationProb) {
+		this.numbers = numbers;
 		this.range = range;
 		this.count = count;
 		this.divisionProb = divisionProb;
 		this.equationProb = equationProb;
 		this.sentences = generateSentences(numbers , range, count);
 		this.questions = generateQuestions(sentences, divisionProb, equationProb);
+		this.title = computeTitle();
+	}
+	
+	private String computeTitle() {
+		int size = numbers.size();
+		String title = "";
+		if (size == 0)
+			return title;
+		else if (size == 1) {
+			title = numbers.get(0).toString();
+		}
+		else if (size == 2)
+			title = numbers.get(0).toString() + " & " + numbers.get(1).toString();
+		else {
+			title = numbers.subList(0, size - 1).stream().map(Object::toString).collect(Collectors.joining(", "))
+					+ " & " + numbers.get(size - 1);
+		}
+		String suffix = size > 1 ? "s" : "";
+		return title + " timetable" + suffix;
 	}
 
 	public static List<TTQuestion> generateQuestions(List<TTSentence> sentences, double divisionProb, double equationProb) {

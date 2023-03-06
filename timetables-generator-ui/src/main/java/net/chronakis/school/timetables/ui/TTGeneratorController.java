@@ -64,7 +64,7 @@ public class TTGeneratorController implements Initializable {
     	}
     	
         // Launch a controller with the content
-        TTSheet sheet = new TTSheet("", numbers, questCount, divProb, equProb);
+        TTSheet sheet = new TTSheet(numbers, questCount, divProb, equProb);
         //sheet.getQuestions().forEach(q -> System.out.println(q.dump()));
         
         openPreview(sheet);

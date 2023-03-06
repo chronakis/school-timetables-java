@@ -6,27 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
-import net.chronakis.adrian.ttgen.TTSheet;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
+import net.chronakis.adrian.ttgen.TTSheet;
 
 public class TTGeneratorController implements Initializable {
 	private static final Integer DEF_QUESTION_COUNT = 20;
@@ -34,9 +31,11 @@ public class TTGeneratorController implements Initializable {
 	private static final double DEF_EQU_PERCENT = 50.0;
 	private static int MIN_QUEST = 10;
 	private static int MAX_QUEST = 200;
+	private static int QUESTS_PER_SHEET = 20;
 	
 	@FXML HBox rootNode;
 	@FXML TextField questionCountField;
+	@FXML TextField sheetCountField;
 	@FXML Slider divSlider;
 	@FXML Slider equSlider;
 	
@@ -112,6 +111,7 @@ public class TTGeneratorController implements Initializable {
 	@FXML
 	public void initialize(URL location, ResourceBundle resources) {
 		questionCountField.setTextFormatter(new TextFormatter<>(integerFilter));
+		sheetCountField.setTextFormatter(new TextFormatter<>(integerFilter));
 
 		for (int i = 0 ; i < 12 ; i ++ ) {
 			String id = "#bn" + (i+1);
@@ -121,6 +121,30 @@ public class TTGeneratorController implements Initializable {
 			resetSheet();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void sheetKeyTyped() {
+		try {
+			int sheets = Integer.parseInt(sheetCountField.getText());
+			Integer questions = sheets * QUESTS_PER_SHEET;
+			questionCountField.setText(questions.toString());
+			
+		} catch (NumberFormatException e) {
+			System.err.println("Cannot parse sheets as integer");
+		}
+	}
+
+	@FXML
+	void questKeyTyped() {
+		try {
+			int questions = Integer.parseInt(questionCountField.getText());
+			Integer sheets = questions / QUESTS_PER_SHEET + (questions % QUESTS_PER_SHEET > 0 ? 1 : 0);
+			sheetCountField.setText(sheets.toString());
+			
+		} catch (NumberFormatException e) {
+			System.err.println("Cannot parse sheets as integer");
 		}
 	}
 

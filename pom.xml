@@ -13,28 +13,6 @@
     <maven.compiler.source>11</maven.compiler.source>    
     <maven.compiler.target>11</maven.compiler.target>    
   </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>19</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>19</version>
-        </dependency>
-  </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
-            </plugin>
-        </plugins>
-    </build>
-
   <modules>
     <module>timetables-generator</module>
     <module>timetables-generator-ui</module>

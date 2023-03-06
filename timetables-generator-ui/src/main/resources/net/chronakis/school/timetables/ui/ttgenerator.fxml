@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox fx:id="rootNode" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.chronakis.school.timetables.ui.TTGeneratorController">
+   <children>
+      <GridPane alignment="CENTER" prefHeight="240.0" prefWidth="229.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ToggleButton fx:id="bn1" mnemonicParsing="false" text="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn2" mnemonicParsing="false" text="2" GridPane.columnIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn3" mnemonicParsing="false" text="3" GridPane.columnIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn4" mnemonicParsing="false" text="4" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn5" mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn6" mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn7" mnemonicParsing="false" text="7" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn8" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn9" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn10" mnemonicParsing="false" text="10" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn11" mnemonicParsing="false" text="11" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+            <ToggleButton fx:id="bn12" mnemonicParsing="false" text="12" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+               </padding>
+            </ToggleButton>
+         </children>
+      </GridPane>
+      <VBox prefHeight="241.0" prefWidth="325.0" HBox.hgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Nuber of questions:">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" right="20.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="questionCountField" onAction="#questionCountAction" prefHeight="27.0" prefWidth="59.0" text="20" />
+                  <Label text="=">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="sheetCount" text="1">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Sheets">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Divisions percentage: ">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="25.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Slider fx:id="divSlider" majorTickUnit="50.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </Slider>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Euqation percentage: ">
+                     <padding>
+                        <Insets bottom="25.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Slider fx:id="equSlider" majorTickUnit="50.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </Slider>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="generateButton" mnemonicParsing="false" onAction="#generateSheet" text="Create sheet">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetSheet" text="Reset">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</HBox>

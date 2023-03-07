@@ -1,11 +1,11 @@
-package net.chronakis.adrian.ttgen;
+package net.chronakis.school.timetables.core;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import net.chronakis.adrian.ttgen.TTQuestion.Sign;
+import net.chronakis.school.timetables.core.TTQuestion.Sign;
 
 public class TTSheet {
 	private final String title;

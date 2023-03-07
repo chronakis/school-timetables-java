@@ -1,4 +1,4 @@
-package net.chronakis.adrian.ttgen;
+package net.chronakis.school.timetables.core;
 
 /**
  * Hello world!

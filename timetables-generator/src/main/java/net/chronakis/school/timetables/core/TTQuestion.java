@@ -1,7 +1,7 @@
-package net.chronakis.adrian.ttgen;
+package net.chronakis.school.timetables.core;
 
 public class TTQuestion {
-	enum Sign {
+	public enum Sign {
 		MULTIPLY("*"),
 		DIVIDE(":");
 
@@ -17,10 +17,10 @@ public class TTQuestion {
 		}
 	}
 	
-	Integer left;
-	Integer right;
-	Sign sign;
-	Integer result;
+	public Integer left;
+	public Integer right;
+	public Sign sign;
+	public Integer result;
 
 	public TTQuestion(Integer left, Integer right, Sign sign, Integer result) {
 		super();
@@ -40,7 +40,7 @@ public class TTQuestion {
 		String res = result != null ? result.toString() : empty;
 		String s = sign.equals(Sign.MULTIPLY) ? multi : div;
 		
-		return String.format("%2s %s %2s = %2s", l, s, r, res);
+		return String.format("%3s %s %3s = %3s", l, s, r, res);
 	}
 
 }

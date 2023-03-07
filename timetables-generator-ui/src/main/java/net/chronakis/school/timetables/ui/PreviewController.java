@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import net.chronakis.adrian.ttgen.TTSheet;
+import net.chronakis.school.timetables.core.TTSheet;
 
 public class PreviewController implements Initializable {
 

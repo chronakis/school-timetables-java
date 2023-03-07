@@ -23,7 +23,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import net.chronakis.adrian.ttgen.TTSheet;
+import net.chronakis.school.timetables.core.TTSheet;
 
 public class TTGeneratorController implements Initializable {
 	private static final Integer DEF_QUESTION_COUNT = 20;

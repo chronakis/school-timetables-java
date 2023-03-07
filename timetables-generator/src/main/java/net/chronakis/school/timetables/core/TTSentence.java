@@ -1,4 +1,4 @@
-package net.chronakis.adrian.ttgen;
+package net.chronakis.school.timetables.core;
 
 /**
  * Represents a number sentence
@@ -7,9 +7,9 @@ package net.chronakis.adrian.ttgen;
  *
  */
 public class TTSentence {
-	Integer primary;
-	Integer other;
-	Integer result;
+	public Integer primary;
+	public Integer other;
+	public Integer result;
 
 	public TTSentence(int primary, int other, int result) {
 		super();

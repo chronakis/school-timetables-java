@@ -14,7 +14,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-
+    public static Config config;
+    
+    public App() {
+    	// We assume that App is a singleton
+    	config = new Config();
+    }
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("ttgenerator"), 600, 300);
@@ -34,5 +40,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }

@@ -26,12 +26,12 @@ import javafx.stage.Stage;
 import net.chronakis.school.timetables.core.TTSheet;
 
 public class TTGeneratorController implements Initializable {
-	private static final Integer DEF_QUESTION_COUNT = 20;
 	private static final double DEF_DIV_PERCENT = 50.0;
 	private static final double DEF_EQU_PERCENT = 50.0;
-	private static int MIN_QUEST = 10;
-	private static int MAX_QUEST = 200;
-	private static int QUESTS_PER_SHEET = 20;
+	private static final int QUESTS_PER_SHEET = 24;
+	private static final int MIN_QUEST = QUESTS_PER_SHEET;
+	private static final int MAX_QUEST = QUESTS_PER_SHEET * 10;
+	private static final Integer DEF_QUESTION_COUNT = QUESTS_PER_SHEET;
 	
 	@FXML HBox rootNode;
 	@FXML TextField questionCountField;

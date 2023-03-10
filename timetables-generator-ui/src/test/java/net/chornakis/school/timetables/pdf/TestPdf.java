@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -82,6 +81,11 @@ public class TestPdf {
         //PdfFont questFont = PdfFontFactory.createFont(fontFile, PdfEncodings.WINANSI, true, true);
         PdfFont questFont = PdfFontFactory.createFont(FontConstants.COURIER);
 		PdfFont titleFont = PdfFontFactory.createFont(FontConstants.HELVETICA);
+		
+//		PdfFont [] questFonts = new PdfFont[9];
+//		for (int i = 0 ;  i < 9 ; i ++) {
+//			questFonts[i] = PdfFontFactory.createTtcFont(fontFile, i, PdfEncodings.WINANSI, true, true);			
+//		}
 
 		Style titleStyle = new Style();
 		titleStyle

@@ -16,11 +16,15 @@ public class Config {
 	public Integer questionCount = DEF_QUESTION_COUNT;
 	public double divPercent = DEF_DIV_PERCENT;
 	public double equPercent = DEF_EQU_PERCENT;
+
+	public int numberPadding;
+	public String emptyString;
 	
 	public String titleFontName;
 	public String questFontName;
 	
-	public float titleFontSize = 12.0f;
+	public float titleFontSize = 24.0f;
+	public float title2FontSize = 12.0f;
 	public float footerFontSize = 12.0f;
 	public float questFontSize = 22.0f;
 	public float questVMargins = 11.0f;
@@ -39,10 +43,15 @@ public class Config {
 		divPercent = DEF_DIV_PERCENT;
 		equPercent = DEF_EQU_PERCENT;
 		
+		numberPadding = 3;
+		emptyString = "_".repeat(numberPadding);
+		
 		titleFontName = FontConstants.HELVETICA;
-		questFontName = "src/main/resources/fonts/ChivoMono-VariableFont_wght.ttf";
+		questFontName = FontConstants.COURIER;
+		//questFontName = "src/main/resources/fonts/ChivoMono-VariableFont_wght.ttf";
 
-		titleFontSize = 12.0f;
+		titleFontSize = 24.0f;
+		title2FontSize = 12.0f;
 		footerFontSize = 12.0f;
 		questFontSize = 22.0f;
 		questVMargins = 11.0f;

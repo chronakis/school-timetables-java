@@ -68,9 +68,16 @@ public class TTSheet {
 			Integer result;
     		if (Math.random() < divisionProb) {
     			sign = Sign.DIVIDE;
-				left = s.result;
-				right = equation ? null : s.primary;
-				result = equation ? s.other : null;
+    			if (equation) {
+    				left = s.result;
+    				right = null;
+    				result = s.primary;
+    			}
+    			else {
+					left = s.result;
+					right = s.primary;
+					result = null;
+    			}
     		}
     		else {
     			sign = Sign.MULTIPLY;	    			

@@ -124,7 +124,7 @@ public class TestPdf {
 				.setMargins(30, 20, 0, 20)
 				;
 		
-		for (int i = 0; i < 24; i++) {
+		for (int i = 0; i < 48; i++) {
 			int num = (int) (10 * Math.random()) + 1;
 			String leading = String.format("%3d", num).replace(" ", "\u00A0");
 			String questText = String.format("%s x%3d = %3d", leading, i, num * i);
@@ -137,21 +137,23 @@ public class TestPdf {
 					.add(questText)
 					;
 			table.addCell(cell);
+			
+			if ((i+1) % 24 == 0) {
+				doc.add(table);
+				int page = (i + 1) / 24;
+				System.out.println("Page " + page);
+				doc.add(new Paragraph("Page " + page).addStyle(footerStyle));
+				doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+				table = new Table(UnitValue.createPercentArray(new float [] {50.0f, 50.0f}))
+						.addStyle(questStyle)
+						//.setBorder(Border.NO_BORDER)
+						.useAllAvailableWidth()
+						.setMargins(30, 20, 0, 20)
+						;
+			}
 		}
 		
-		doc.add(table);
 		
-		doc.add(new Paragraph("Page 1").addStyle(footerStyle));
 		doc.close();
-	}
-
-	private Text textWithWidth(String text, PdfFont font, float width) {
-		Text result = new Text(text)
-		        .setFont(font)
-		        .setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.FILL_STROKE)
-		        .setStrokeWidth(width)
-		        //.setStrokeColor(DeviceGray.BLACK);
-		        ;
-		return result;
 	}
 }

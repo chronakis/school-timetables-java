@@ -6,3 +6,4 @@ target/
 .settings/
 *.out
 test*.pdf
+sheet*.pdf

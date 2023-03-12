@@ -26,13 +26,6 @@ import javafx.stage.Stage;
 import net.chronakis.school.timetables.core.TTSheet;
 
 public class TTGeneratorController implements Initializable {
-	private static final double DEF_DIV_PERCENT = 50.0;
-	private static final double DEF_EQU_PERCENT = 50.0;
-	private static final int QUESTS_PER_SHEET = 24;
-	private static final int MIN_QUEST = QUESTS_PER_SHEET;
-	private static final int MAX_QUEST = QUESTS_PER_SHEET * 10;
-	private static final Integer DEF_QUESTION_COUNT = QUESTS_PER_SHEET;
-	
 	@FXML HBox rootNode;
 	@FXML TextField questionCountField;
 	@FXML TextField sheetCountField;
@@ -40,7 +33,7 @@ public class TTGeneratorController implements Initializable {
 	@FXML Slider equSlider;
 	
 	ToggleButton [] numberToggles = new ToggleButton[12];
-	
+	Config config = App.config;
 	
 	@FXML
     private void generateSheet() throws IOException {
@@ -54,8 +47,8 @@ public class TTGeneratorController implements Initializable {
     			numbers.add(i+1);
     	}
     	
-    	if (questCount < MIN_QUEST || questCount > MAX_QUEST) {
-    		showInfoMessage("Number of questions has to be between " + MIN_QUEST + " and " + MAX_QUEST);
+    	if (questCount < config.minQuestions || questCount > config.maxQuestions) {
+    		showInfoMessage("Number of questions has to be between " + config.minQuestions + " and " + config.maxQuestions);
     		return;
     	}
     	if (numbers.size() == 0) {
@@ -97,9 +90,9 @@ public class TTGeneratorController implements Initializable {
         for (ToggleButton toggle : numberToggles) {
 			toggle.setSelected(false);
 		}
-        questionCountField.setText(DEF_QUESTION_COUNT.toString());
-        divSlider.setValue(DEF_DIV_PERCENT);
-        equSlider.setValue(DEF_EQU_PERCENT);        
+        questionCountField.setText(config.questionCount.toString());
+        divSlider.setValue(config.divPercent);
+        equSlider.setValue(config.equPercent);        
     }
     
     @FXML
@@ -128,7 +121,7 @@ public class TTGeneratorController implements Initializable {
 	void sheetKeyTyped() {
 		try {
 			int sheets = Integer.parseInt(sheetCountField.getText());
-			Integer questions = sheets * QUESTS_PER_SHEET;
+			Integer questions = sheets * config.questsPerSheet;
 			questionCountField.setText(questions.toString());
 			
 		} catch (NumberFormatException e) {
@@ -140,7 +133,7 @@ public class TTGeneratorController implements Initializable {
 	void questKeyTyped() {
 		try {
 			int questions = Integer.parseInt(questionCountField.getText());
-			Integer sheets = questions / QUESTS_PER_SHEET + (questions % QUESTS_PER_SHEET > 0 ? 1 : 0);
+			Integer sheets = questions / config.questsPerSheet + (questions % config.questsPerSheet > 0 ? 1 : 0);
 			sheetCountField.setText(sheets.toString());
 			
 		} catch (NumberFormatException e) {

@@ -5,25 +5,26 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.font.PdfFontFactory.EmbeddingStrategy;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.border.Border;
-import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.property.AreaBreakType;
-import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.property.UnitValue;
+import com.itextpdf.layout.properties.AreaBreakType;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.UnitValue;
 
 public class TestPdf {
 
@@ -50,7 +51,7 @@ public class TestPdf {
 		String fontFile = "src/main/resources/fonts/ChivoMono-VariableFont_wght.ttf";
 		
         //FontProgram fontProgram = FontProgramFactory.createFont(REGULAR);
-        PdfFont questFont2 = PdfFontFactory.createFont(fontFile, PdfEncodings.WINANSI, true, true);
+        PdfFont questFont2 = PdfFontFactory.createFont(fontFile, PdfEncodings.WINANSI, EmbeddingStrategy.PREFER_EMBEDDED, true);
         
 		
 		String dest = "testWithFont.pdf";
@@ -59,8 +60,8 @@ public class TestPdf {
 		PdfDocument pdfDoc = new PdfDocument(writer);
 		Document doc = new Document(pdfDoc);
 
-		PdfFont titleFont = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
-		PdfFont questFont = PdfFontFactory.createFont(FontConstants.COURIER);
+		PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
+		PdfFont questFont = PdfFontFactory.createFont(StandardFonts.COURIER);
 
 		Text title = new Text("5, 6 & 7 timetables. 20 Questions.").setFont(titleFont);
 		doc.add(new Paragraph(title));
@@ -79,8 +80,8 @@ public class TestPdf {
 	public void testTables() throws IOException {
 		String fontFile = "src/main/resources/fonts/ChivoMono-VariableFont_wght.ttf";
         //PdfFont questFont = PdfFontFactory.createFont(fontFile, PdfEncodings.WINANSI, true, true);
-        PdfFont questFont = PdfFontFactory.createFont(FontConstants.COURIER);
-		PdfFont titleFont = PdfFontFactory.createFont(FontConstants.HELVETICA);
+        PdfFont questFont = PdfFontFactory.createFont(StandardFonts.COURIER);
+		PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
 		
 //		PdfFont [] questFonts = new PdfFont[9];
 //		for (int i = 0 ;  i < 9 ; i ++) {
@@ -134,7 +135,7 @@ public class TestPdf {
 					.setTextAlignment(i % 2 == 0 ? TextAlignment.LEFT : TextAlignment.RIGHT)
 					.setMargins(0, 0, 22.0f, 0)
 					.setBorder(Border.NO_BORDER)
-					.add(questText)
+					.add(new Paragraph(questText))
 					;
 			table.addCell(cell);
 			

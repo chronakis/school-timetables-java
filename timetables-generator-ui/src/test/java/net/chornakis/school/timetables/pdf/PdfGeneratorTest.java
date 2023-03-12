@@ -5,7 +5,7 @@ import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.constants.StandardFonts;
 
 import net.chronakis.school.timetables.core.TTSheet;
 import net.chronakis.school.timetables.ui.Config;
@@ -21,15 +21,15 @@ public class PdfGeneratorTest {
 		config.numberPadding = 3;
 		config.emptyString = "-".repeat(config.numberPadding);
 		
-		config.titleFontName = FontConstants.HELVETICA;
-		config.questFontName = FontConstants.COURIER;
+		config.titleFontName = StandardFonts.HELVETICA;
+		config.questFontName = StandardFonts.COURIER;
 
 		config.titleFontSize = 24.0f;
 		config.title2FontSize = 12.0f;
 		config.footerFontSize = 12.0f;
 
 		config.questFontSize = 22.0f;
-		config.questVMargins = 16.0f;		
+		config.questVMargins = 19.0f;		
 	}
 	
 	@Test

@@ -81,8 +81,6 @@
   </dependencies>
   <properties>
     <itext.version>7.2.5</itext.version>
-    <maven.compiler.target>11</maven.compiler.target>
-    <maven.compiler.source>11</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>

@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.chronakis.school</groupId>
+    <artifactId>timetables-generator-pdf</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <name>timetables-generator-pdf</name>
+
+
+      <parent>
+        <groupId>net.chronakis.school</groupId>
+        <artifactId>timetables-generator-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../timetables-generator-parent</relativePath>
+      </parent>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <itext.version>7.2.5</itext.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+          <groupId>net.chronakis.school</groupId>
+          <artifactId>timetables-generator-core</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+
+      <dependency>         
+         <groupId>com.itextpdf</groupId>         
+         <artifactId>kernel</artifactId>         
+         <version>${itext.version}</version>     
+      </dependency>  
+      <dependency>         
+         <groupId>com.itextpdf</groupId>         
+         <artifactId>io</artifactId>         
+         <version>${itext.version}</version>     
+      </dependency>  
+      <dependency>         
+         <groupId>com.itextpdf</groupId>         
+         <artifactId>layout</artifactId>         
+         <version>${itext.version}</version>
+      </dependency>  
+
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.13.2</version>
+	      <scope>test</scope>
+	    </dependency>
+
+    </dependencies>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.4.1</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>shade</goal>
+                </goals>
+                <configuration>
+                  <artifactSet>
+                    <excludes>
+                      <exclude>net.chronakis.school:timetables-generator-core</exclude>
+                      <exclude>junit:junit</exclude>
+                      <exclude>jmock:*</exclude>
+                      <exclude>org.bouncycastle:*</exclude>
+                    </excludes>
+                  </artifactSet>
+                  <!--
+                  <filters>
+                    <filter>
+                      <artifact>*:*</artifact>
+                      <excludes>
+                        <exclude>META-INF/**/module-info.class</exclude>
+                      </excludes>
+                    </filter>
+                  </filters>
+                  -->
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!--
+      -->
+          <plugin>
+            <groupId>org.moditect</groupId>
+            <artifactId>moditect-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>add-module-infos</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>add-module-info</goal>
+                </goals>
+                <configuration>
+                  <overwriteExistingFiles>true</overwriteExistingFiles>
+                  <module>
+                    <moduleInfoSource>
+                        module net.chronakis.school.timetables.pdf {
+                            requires net.chronakis.school.timetables.core;
+                            exports net.chronakis.school.timetables.pdf;
+                        }
+                    </moduleInfoSource>
+                  </module>
+                  <!--
+                    <outputDirectory>${project.build.directory}/modules</outputDirectory>
+                    <modules>
+                        <module>
+                            <file>
+                                target/timetables-generator-pdf-0.1-SNAPSHOT.jar
+                            </file>
+                            <moduleInfoFile>
+                              src/main/java/module-info.java
+                            </moduleInfoFile>
+                        </module>
+                    </modules>
+                  -->
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+        </plugins>
+      </build>
+
+</project>

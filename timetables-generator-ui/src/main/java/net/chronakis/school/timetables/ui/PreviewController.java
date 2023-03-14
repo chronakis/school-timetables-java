@@ -21,6 +21,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import net.chronakis.school.timetables.core.TTSheet;
+import net.chronakis.school.timetables.pdf.PdfGenerator;
+import net.chronakis.school.timetables.pdf.Config;
 
 public class PreviewController implements Initializable {
 

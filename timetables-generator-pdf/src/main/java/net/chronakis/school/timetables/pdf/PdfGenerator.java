@@ -1,4 +1,4 @@
-package net.chronakis.school.timetables.ui;
+package net.chronakis.school.timetables.pdf;
 
 import java.io.File;
 

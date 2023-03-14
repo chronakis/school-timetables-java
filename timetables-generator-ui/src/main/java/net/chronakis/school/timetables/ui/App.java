@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.chronakis.school.timetables.pdf.Config;
 
 import java.io.IOException;
 

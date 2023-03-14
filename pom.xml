@@ -3,18 +3,20 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.chronakis.school</groupId>
-  <artifactId>timetables-generator-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>timetables-generator</artifactId>
+  <version>0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>timetables-generator-parent</name>
+  <name>timetables-generator</name>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>    
-    <maven.compiler.target>11</maven.compiler.target>    
   </properties>
+
   <modules>
-    <module>timetables-generator</module>
+    <module>timetables-generator-parent</module>
+    <module>timetables-generator-core</module>
     <module>timetables-generator-ui</module>
+    <module>timetables-generator-pdf</module>
   </modules>
 </project>

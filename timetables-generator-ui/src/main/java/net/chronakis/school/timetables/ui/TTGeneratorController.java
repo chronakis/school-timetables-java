@@ -24,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.chronakis.school.timetables.core.TTSheet;
+import net.chronakis.school.timetables.pdf.Config;
 
 public class TTGeneratorController implements Initializable {
 	@FXML HBox rootNode;

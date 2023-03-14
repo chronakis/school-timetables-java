@@ -3,49 +3,44 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.chronakis.school</groupId>
     <artifactId>timetables-generator-ui</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
+
+      <parent>
+        <groupId>net.chronakis.school</groupId>
+        <artifactId>timetables-generator-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../timetables-generator-parent</relativePath>
+      </parent>
+
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <!-- <itext.version>7.2.5</itext.version> -->
-        <itext.version>7.2.5</itext.version>
+        <javafx.version>19</javafx.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>19</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>19</version>
+            <version>${javafx.version}</version>
         </dependency>
         
         <dependency>
-		  <groupId>net.chronakis.school</groupId>
-		  <artifactId>timetables-generator</artifactId>
-		  <version>0.0.1-SNAPSHOT</version>
+          <groupId>net.chronakis.school</groupId>
+          <artifactId>timetables-generator-core</artifactId>
+          <version>${project.version}</version>
         </dependency>
-
-      <dependency>         
-         <groupId>com.itextpdf</groupId>         
-         <artifactId>kernel</artifactId>         
-         <version>${itext.version}</version>     
-      </dependency>  
-      
-      <dependency>         
-         <groupId>com.itextpdf</groupId>         
-         <artifactId>io</artifactId>         
-         <version>${itext.version}</version>     
-      </dependency>  
-      
-      <dependency>         
-         <groupId>com.itextpdf</groupId>         
-         <artifactId>layout</artifactId>         
-         <version>${itext.version}</version>
-      </dependency>  
+        <dependency>
+          <groupId>net.chronakis.school</groupId>
+          <artifactId>timetables-generator-pdf</artifactId>
+          <version>${project.version}</version>
+        </dependency>
 
 	    <dependency>
 	      <groupId>junit</groupId>

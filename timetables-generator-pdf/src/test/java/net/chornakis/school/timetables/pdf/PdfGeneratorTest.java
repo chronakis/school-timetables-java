@@ -8,8 +8,8 @@ import org.junit.Test;
 import com.itextpdf.io.font.constants.StandardFonts;
 
 import net.chronakis.school.timetables.core.TTSheet;
-import net.chronakis.school.timetables.ui.Config;
-import net.chronakis.school.timetables.ui.PdfGenerator;
+import net.chronakis.school.timetables.pdf.Config;
+import net.chronakis.school.timetables.pdf.PdfGenerator;
 
 public class PdfGeneratorTest {
 	
